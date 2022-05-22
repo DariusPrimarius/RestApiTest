@@ -40,10 +40,10 @@ Route::delete('profiles/{id}', function($id) {
     return 204;
 });
 Route::get('profiles', 'profileController@index');
-Route::get('profiles/{profiles}', 'profileController@show');
+Route::get('profiles/{profile}', 'profileController@show');
 Route::post('profiles', 'profileController@store');
-Route::put('profiles/{profiles}', 'profileController@update');
-Route::delete('profiles/{profiles}', 'profileController@delete');
+Route::put('profiles/{profile}', 'profileController@update');
+Route::delete('profiles/{profile}', 'profileController@delete');
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
 
