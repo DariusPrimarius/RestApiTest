@@ -39,13 +39,13 @@ Route::delete('profiles/{id}', function($id) {
 
     return 204;
 });
-Route::get('profiles', 'profilesController@index');
-Route::get('profiles/{profiles}', 'profilesController@show');
-Route::post('profiles', 'profilesController@store');
-Route::put('profiles/{profiles}', 'profilesController@update');
-Route::delete('profiles/{profiles}', 'profilesController@delete');
+Route::get('profiles', 'profileController@index');
+Route::get('profiles/{profiles}', 'profileController@show');
+Route::post('profiles', 'profileController@store');
+Route::put('profiles/{profiles}', 'profileController@update');
+Route::delete('profiles/{profiles}', 'profileController@delete');
 Route::post('register', 'Auth\RegisterController@register');
-
+Route::post('login', 'Auth\LoginController@login');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
