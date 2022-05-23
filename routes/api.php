@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Profile;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,40 +12,13 @@ use App\Models\Profile;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('profiles', function() {
-    // If the Content-Type and Accept headers are set to 'application/json',
-    // this will return a JSON structure. This will be cleaned up later.
-    return Profile::all();
-});
-
-Route::get('profiles/{id}', function($id) {
-    return Profile::find($id);
-});
-
-Route::post('profiles', function(Request $request) {
-    return Profile::create($request->all);
-});
-
-Route::put('profiles/{id}', function(Request $request, $id) {
-    $article = Profile::findOrFail($id);
-    $article->update($request->all());
-
-    return $article;
-});
-
-Route::delete('profiles/{id}', function($id) {
-    Profile::find($id)->delete();
-
-    return 204;
-});
-Route::get('profiles', 'profileController@index');
-Route::get('profiles/{profile}', 'profileController@show');
-Route::post('profiles', 'profileController@store');
-Route::put('profiles/{profile}', 'profileController@update');
-Route::delete('profiles/{profile}', 'profileController@delete');
-Route::post('register', 'Auth\RegisterController@register');
-Route::post('login', 'Auth\LoginController@login');
-
+Route::get('profiles', 'App\Http\Controllers\ProfileController@index');
+Route::get('profiles/{profile}', 'App\Http\Controllers\ProfileController@show');
+Route::post('profiles', 'App\Http\Controllers\ProfileController@store');
+Route::put('profiles/{profile}', 'App\Http\Controllers\ProfileController@update');
+Route::delete('profiles/{profile}', 'App\Http\Controllers\ProfileController@delete');
+Route::post('register', 'App\Http\Controllers\Auth\RegisterController@registered');
+Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

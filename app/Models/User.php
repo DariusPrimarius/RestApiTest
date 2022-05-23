@@ -46,6 +46,7 @@ class User extends Authenticatable
     {
         $this->api_token = str::random(60);
         $this->save();
+
         return $this->api_token;
     }
 }

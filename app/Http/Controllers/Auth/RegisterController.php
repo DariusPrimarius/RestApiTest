@@ -71,10 +71,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-    protected function registered(Request $request, $user)
+    protected function registered(Request $request,User $user)
     {
         $user->generateToken();
-
-        return response()->json(['data' => $user->toArray()], 201);
+        return response()->json(['data' => $request->toArray()], 201);
     }
 }

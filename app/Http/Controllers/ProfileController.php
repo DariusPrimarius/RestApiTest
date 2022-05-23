@@ -10,6 +10,7 @@ class ProfileController extends Controller
     public function index()
     {
         return Profile::all();
+
     }
 
     public function show(Profile $profile)
@@ -26,15 +27,13 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $profile->update($request->all());
-
-        return response()->json($profile, 200);
+        return response()->json($profile,200);
     }
 
     public function delete( Profile $profile)
     {
 
         $profile->delete();
-
         return response()->json(null,204);
     }
 }
