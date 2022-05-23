@@ -9,7 +9,11 @@
 
 ## About Project
 Project implements Rest Api controller for users and profiles. 
-Its receiving and json requests for CRUD operations
+Its receiving and returning json data for CRUD operations.
+User is creating token for a time of authorization.
+
+things to fix :
+log out issue in browser.
 
 ## License
 
